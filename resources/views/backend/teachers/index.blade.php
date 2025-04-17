@@ -1,3 +1,6 @@
+<?php
+$num = 0;
+?>
 @extends('backend.inc.app')
 @section('content')
     <header class="header d-flex justify-content-between" >
@@ -22,13 +25,30 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td>{{$table['id']}}</td>
-                        <td>{{$table['name']}}</td>
-                        <td>{{$table['phone']}}</td>
-                        <td>{{$table['email']}}</td>
-                        <td>Action</td>
+                        <th>{{$table['id']}}</th>
+                        <th>{{$table['name']}}</th>
+                        <th>{{$table['phone']}}</th>
+                        <th>{{$table['email']}}</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @isset($teachers)
+                        @foreach ($teachers as $teacher)
+                            <tr>
+                                <td>{{++$num}}</td>
+                                <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
+                                <td>{{$teacher->phone}}</td>
+                                <td>{{$teacher->email}}</td>
+                                <td>
+                                    <a href="{{route('teacher.show' , $teacher->id)}}" class="btn btn-sm "><i class="mdi mdi-pen"></i></a>
+                                    <button class="btn btn-sm "><i class="mdi mdi-eye"></i></button>
+                                    <button class="btn btn-sm "><i class="fa fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endisset
+                </tbody>
             </table>
         </div>
     </div>

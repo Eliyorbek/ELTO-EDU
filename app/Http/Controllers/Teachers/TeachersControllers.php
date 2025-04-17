@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Teachers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teachers\TeacherRequest;
+use App\Http\Resources\Teachers\TeachersResource;
+use App\Models\Teacher;
 use App\Services\Teachers\TeachersService;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,7 @@ class TeachersControllers extends Controller
             'email'=>'email',
 
         ];
-        return view('backend.teachers.index' , compact('teachers' , 'table'));
+        return view('backend.teachers.index' , compact('teachers' ,  'table'));
     }
 
     /**
@@ -39,8 +41,8 @@ class TeachersControllers extends Controller
     public function store(TeacherRequest $request)
     {
         $data = $this->teachers->createTeacher($request->all());
-        
-        return redirect()->route('teacher.index');
+
+        return redirect()->route('teacher.index')->with('save' , 'Muvofaqqiyatli saqlandi!');
     }
 
     /**
@@ -48,7 +50,9 @@ class TeachersControllers extends Controller
      */
     public function show(string $id)
     {
-        //
+        $teacher = new TeachersResource(Teacher::findOrFail($id));
+        $teacher = $teacher->toArray(request());
+        return view('backend.teachers.update' , compact('teacher'))->with('update' , 'Malumotni o\'zgartirmoqchimisiz');
     }
 
     /**
