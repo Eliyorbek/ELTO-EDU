@@ -42,7 +42,7 @@ class TeachersControllers extends Controller
     {
         $data = $this->teachers->createTeacher($request->all());
 
-        return redirect()->route('teacher.index')->with('save' , 'Muvofaqqiyatli saqlandi!');
+        return redirect()->route('teacher.index')->with('success' , 'Muvofaqqiyatli saqlandi!');
     }
 
     /**
@@ -52,7 +52,7 @@ class TeachersControllers extends Controller
     {
         $teacher = new TeachersResource(Teacher::findOrFail($id));
         $teacher = $teacher->toArray(request());
-        return view('backend.teachers.update' , compact('teacher'))->with('update' , 'Malumotni o\'zgartirmoqchimisiz');
+        return view('backend.teachers.update' , compact('teacher'))->with('success' , 'Malumotni o\'zgartirmoqchimisiz');
     }
 
     /**
@@ -66,16 +66,23 @@ class TeachersControllers extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TeacherRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
-        //
+        $teacher = $this->teachers->updateTeacher($id , $request->all());
+        if($teacher){
+            return redirect()->route('teacher.index')->with( 'success','Ma\'lumot o\'zgartirildi!');
+        }else{
+            return redirect()->route('teaceher.index')->with('success' , 'Malumot ozgarmadi !');
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $teacher = $this->teachers->deleteTeacher($id);
+        return redirect()->route('teacher.index')->with('success','Ma\'lumot o\'chirildi!');
     }
 }

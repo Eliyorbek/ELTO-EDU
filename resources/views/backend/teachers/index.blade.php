@@ -40,10 +40,14 @@ $num = 0;
                                 <td>{{$teacher->firstname}} {{$teacher->lastname}}</td>
                                 <td>{{$teacher->phone}}</td>
                                 <td>{{$teacher->email}}</td>
-                                <td>
+                                <td class="d-flex">
                                     <a href="{{route('teacher.show' , $teacher->id)}}" class="btn btn-sm "><i class="mdi mdi-pen"></i></a>
                                     <button class="btn btn-sm "><i class="mdi mdi-eye"></i></button>
-                                    <button class="btn btn-sm "><i class="fa fa-trash-can"></i></button>
+                                    <form action="{{route('teacher.delete', $teacher->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm "><i class="fa fa-trash-can"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

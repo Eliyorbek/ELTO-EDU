@@ -11,8 +11,9 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <form class="forms-sample" action="{{route('teacher.store')}}" method="POST" enctype="multipart/form-data">
+                <form class="forms-sample" action="{{route('teacher.update' , $teacher['id'])}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
@@ -43,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="phone" name="phone" name="phone" placeholder="+998939637074" value="{{$teacher['phone']}}" id="phone" class="form-control">
+                        <input type="phone" name="phone"  placeholder="+998939637074" value="{{$teacher['phone']}}" id="phone" class="form-control">
                     </div>
                     <div class="form-group">
                     <label>File upload</label><br>

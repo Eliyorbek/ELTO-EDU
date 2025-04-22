@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Session;
 <script src="/backend/assets/js/jquery.cookie.js"></script>
 <script src="/backend/assets/js/off-canvas.js"></script>
 <script src="/backend/assets/js/hoverable-collapse.js"></script>
-<script src="/backend/assets/js/template.js"></script>
+{{-- <script src="/backend/assets/js/template.js"></script> --}}
 <script src="/backend/assets/js/settings.js"></script>
 <script src="/backend/assets/js/dashboard-dark.js"></script>
 <script src="/backend/assets/js/file-upload.js"></script>
 <script src="/backend/assets/js/typeahead.js"></script>
 <script src="/js/sweetalert2.js"></script>
 
-@if(Session::has('save'))
+@if(Session::has('success'))
     <script>
         $(function() {
             var Toast = Swal.mixin({
@@ -38,13 +38,13 @@ use Illuminate\Support\Facades\Session;
             });
             Toast.fire({
                 icon: 'success',
-                title: '{{\session('save')}}'
+                title: '{{\session('success')}}'
             })
         });
     </script>
 @endif
 
-@if(Session::has('update'))
+@if(Session::has('info'))
     <script>
         $(function() {
             var Toast = Swal.mixin({
@@ -54,8 +54,8 @@ use Illuminate\Support\Facades\Session;
                 timer: 3000
             });
             Toast.fire({
-                icon: 'success',
-                title: '{{\session('update')}}'
+                icon: 'info',
+                title: '{{\session('info')}}'
             })
         });
     </script>
@@ -71,12 +71,13 @@ use Illuminate\Support\Facades\Session;
                 timer: 3000
             });
             Toast.fire({
-                icon: 'success',
+                icon: 'error',
                 title: '{{\session('error')}}'
             })
         });
     </script>
-    @endif
+@endif
+
 </body>
 
 </html>

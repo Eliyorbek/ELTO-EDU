@@ -17,6 +17,8 @@ Route::controller(TeachersControllers::class)->group(function(){
     Route::get('/teachers/create' , 'create')->name('teacher.create');
     Route::post('/teacher/store' , 'store')->name('teacher.store');
     Route::get('/teachers/{id}' , 'show')->name('teacher.show');
+    Route::put('/teachers/{id}' , 'update')->name('teacher.update');
+    Route::delete('/teacher/{id}', 'destroy')->name('teacher.delete');
 });
 
 
