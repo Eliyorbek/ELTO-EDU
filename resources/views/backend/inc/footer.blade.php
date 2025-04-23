@@ -77,7 +77,7 @@ use Illuminate\Support\Facades\Session;
         });
     </script>
 @endif
-
+@livewireScripts
 </body>
 
 </html>

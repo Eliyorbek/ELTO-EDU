@@ -1,3 +1,9 @@
+<style>
+  .flag-img{
+    width: 30px;
+    height:30px;
+  }
+</style>
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex justify-content-center">
       <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
@@ -29,7 +35,7 @@
             </a>
           </div>
         </li>
-       
+
       </ul>
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item nav-date dropdown">
@@ -131,6 +137,45 @@
             </a>
           </div>
         </li>
+        <li class="nav-item dropdown me-0">
+          <a class="nav-link count-indicator  dropdown-toggle d-flex align-items-center justify-content-center" href="{{route('dark-or-light')}}" >
+            <i class="fa fa-{{$moonOrSun}} mx-0"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown me-0">
+          <a class="nav-link  dropdown-toggle d-flex align-items-center justify-content-center" href="#" data-bs-toggle="dropdown">
+            <i class="typcn typcn- mx-0">eng</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <img src="/flag/uzb.png" class="flag-img" alt="">
+              </div>
+              <div class="preview-item-content">
+                <h6 class="preview-subject fw-normal">Uzbek</h6>
+              </div>
+            </a>
+
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <img src="/flag/usa.png" class="flag-img" alt="">
+              </div>
+              <div class="preview-item-content">
+                <h6 class="preview-subject fw-normal">English</h6>
+              </div>
+            </a>
+
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <img src="/flag/rus.png" class="flag-img" alt="">
+              </div>
+              <div class="preview-item-content">
+                <h6 class="preview-subject fw-normal">Russia</h6>
+              </div>
+            </a>
+          </div>
+        </li>
+
       </ul>
 
       <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

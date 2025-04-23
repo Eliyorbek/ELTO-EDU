@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(SuperAdminSeeder::class);        
-        $this->call(Hamburger::class);        
+        $this->call(SuperAdminSeeder::class);
+        $this->call(Hamburger::class);
+        $this->call(DarkOrLight::class);
     }
 }

@@ -17,14 +17,7 @@ class TeachersControllers extends Controller
     public function index()
     {
         $teachers = $this->teachers->getAll();
-        $table = [
-            'id'=>'№',
-            'name'=>'Fullname',
-            'phone'=>'phone',
-            'email'=>'email',
-
-        ];
-        return view('backend.teachers.index' , compact('teachers' ,  'table'));
+        return view('backend.teachers.index' , compact('teachers'));
     }
 
     /**

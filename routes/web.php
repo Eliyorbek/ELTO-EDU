@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DarkOrLightController;
 use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HamburgerButtonController;
@@ -11,7 +12,7 @@ Route::get('/', [PagesController::class , 'login']);
 
 Route::get('/login' , [AuthController::class, 'login'])->name('login');
 Route::post('/hamburger' , [HamburgerButtonController::class, 'activeBtn'])->name('hamburger');
-
+Route::get('/dark-or-light' , [DarkOrLightController::class, 'darkOrLight'])->name('dark-or-light');
 Route::controller(TeachersControllers::class)->group(function(){
     Route::get('/teachers' , 'index')->name('teacher.index');
     Route::get('/teachers/create' , 'create')->name('teacher.create');
